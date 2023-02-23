@@ -1,26 +1,26 @@
-import { useState } from 'react'
-import { Routes, Route } from "react-router-dom"
-import { Container } from 'react-bootstrap'
-import { Home } from './pages/Home'
-import { Store } from './pages/Store'
-import { About } from './pages/About'
-import { Navbar } from './components/Narbar'
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import { Home } from "./pages/Home";
+import { Store } from "./pages/Store";
+import { About } from "./pages/About";
+import { Navbar } from "./components/Narbar";
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 
-function App(){
-
-  return(
-    <>
+function App() {
+  return (
+    <ShoppingCartProvider>
       <Navbar />
-      <Container className='mb-4'>
+      <Container className="mb-4">
         <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/store" element={<Store />}/>
-          <Route path="/about" element={<About />}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Container>
-    </>
-    )
-  }
-export default App
+    </ShoppingCartProvider>
+  );
+}
+export default App;
 // How To Create An Advanced Shopping Cart With React and TypeScript
 // follow Web Dev Simplfified https://youtu.be/lATafp15HWA
